@@ -3,4 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :user_followings_as_follower, foreign_key: :follower_id, class_name: "UserFollowing"
+  has_many :user_followings_as_followed, foreign_key: :following_id, class_name: "UserFollowing"
+
+  has_many :following, through: :user_followings_as_follower
+  has_many :followers, through: :user_followings_as_followed
 end
