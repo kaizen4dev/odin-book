@@ -1,7 +1,0 @@
-/home/k/repos/odin-book/.devenv/flake.json
-/home/k/repos/odin-book/.devenv.flake.nix
-/home/k/repos/odin-book/.env
-/home/k/repos/odin-book/devenv.local.nix
-/home/k/repos/odin-book/devenv.lock
-/home/k/repos/odin-book/devenv.nix
-/home/k/repos/odin-book/devenv.yaml
