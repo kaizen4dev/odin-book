@@ -24,8 +24,23 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <nav>
+      <menu>
+        <% if signed_in? %>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Feed", posts_path %></li>
+          <li><%= button_to "Sign out", destroy_user_session_path, method: :delete  %></li>
+        <% else %>
+          <li><%= button_to "Sign in", new_user_session_path %></li>
+          <li><%= button_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </menu>
+    </nav>
+
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
   </body>
 </html>
