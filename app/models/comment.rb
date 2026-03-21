@@ -4,4 +4,6 @@ class Comment < ApplicationRecord
 
   has_many :comments, as: :commantable
   has_many :likes, as: :likeable
+
+  validates :body, presence: true, length: { maximum: 1000 }
 end
