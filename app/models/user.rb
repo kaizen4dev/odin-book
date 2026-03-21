@@ -23,4 +23,8 @@ class User < ApplicationRecord
   def feed
     Post.feed_for(self)
   end
+
+  def to_param
+    self.name
+  end
 end
