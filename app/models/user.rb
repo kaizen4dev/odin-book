@@ -14,6 +14,12 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  validates :name, presence: true, uniqueness: true, length: { in: 3..20 }, format: {
+    without: /\W/,
+    message: "Name can't contain special characters"
+  }
+  validates :bio, length: { maximum: 500 }
+
   def feed
     Post.feed_for(self)
   end
