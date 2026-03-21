@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :followers, through: :user_followings_as_followed
 
   has_many :posts
+  has_many :comments
 end
