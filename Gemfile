@@ -66,3 +66,7 @@ group :test do
 end
 
 gem "devise", "~> 5.0"
+
+gem "dartsass-rails", "~> 0.5.1"
+
+gem "bulma-rails", "~> 1.0"
