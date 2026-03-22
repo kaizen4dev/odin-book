@@ -24,17 +24,35 @@
   </head>
 
   <body>
-    <nav>
-      <menu>
-        <% if signed_in? %>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "Feed", posts_path %></li>
-          <li><%= button_to "Sign out", destroy_user_session_path, method: :delete  %></li>
-        <% else %>
-          <li><%= button_to "Sign in", new_user_session_path %></li>
-          <li><%= button_to "Sign up", new_user_registration_path %></li>
-        <% end %>
-      </menu>
+    <nav class="navbar is-dark" data-controller="navbar">
+      <div class="navbar-brand">
+        <%= link_to "Odin Book", root_path, class: "navbar-item is-size-4" %>
+        <a class="navbar-burger" data-navbar-target="burger" data-action="navbar#toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <div class="navbar-menu" data-navbar-target="menu">
+        <div class="navbar-start">
+          <% if signed_in? %>
+            <%= link_to "Profile", user_path(current_user), class: "navbar-item is-tab" %>
+            <%= link_to "Feed", posts_path, class: "navbar-item is-tab" %>
+            <%= link_to "People", users_path, class: "navbar-item is-tab" %>
+          <% end %>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <% if signed_in? %>
+              <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button" %>
+            <% else %>
+              <%= button_to "Sign in", new_user_session_path, class: "button" %>
+              <%= button_to "Sign up", new_user_registration_path, class: "button is-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <main>
