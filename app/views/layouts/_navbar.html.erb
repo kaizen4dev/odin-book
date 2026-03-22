@@ -21,8 +21,8 @@
         <% if signed_in? %>
           <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button" %>
         <% else %>
-          <%= button_to "Sign in", new_user_session_path, class: "button" %>
-          <%= button_to "Sign up", new_user_registration_path, class: "button is-primary" %>
+          <%= link_to "Sign in", new_user_session_path, class: "button" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "button is-primary" %>
         <% end %>
       </div>
     </div>
