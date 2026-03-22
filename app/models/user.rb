@@ -27,4 +27,8 @@ class User < ApplicationRecord
   def to_param
     self.name
   end
+
+  def profile_picture_url
+    "https://gravatar.com/avatar/#{Digest::SHA256.hexdigest(self.email)}"
+  end
 end
