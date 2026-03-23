@@ -4,12 +4,12 @@ class UserFollowingsController < ApplicationController
   end
 
   def destroy
-    UserFollowing.find_by(user_followings_params).destroy
+    UserFollowing.find_by(follower_id: params[:follower_id], following_id: params[:following_id]).destroy
   end
 
   private
 
   def user_followings_params
-    params.expect :follower_id, :following_id
+    params.permit :follower_id, :following_id
   end
 end
