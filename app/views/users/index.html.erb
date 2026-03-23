@@ -1,0 +1,22 @@
+<div class="conatiner p-4" data-controller="users">
+  <h1 class="title is-1">People</h1>
+  <div class="tabs is-centered">
+    <ul>
+      <li class="is-active" data-action="click->users#following" data-users-target="followingTab"><a>I'm following</a></li>
+      <li data-action="click->users#followers" data-users-target="followersTab"><a>My followers</a></li>
+      <li data-action="click->users#all" data-users-target="allTab"><a>All</a></li>
+    </ul>
+  </div>
+
+  <div data-users-target="following">
+    <%= render "users", users: @following %>
+  </div>
+
+  <div data-users-target="followers" hidden>
+    <%= render "users", users: @followers %>
+  </div>
+
+  <div data-users-target="all" hidden>
+    <%= render "users", users: @all %>
+  </div>
+</div>

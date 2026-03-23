@@ -1,0 +1,15 @@
+<% users.each do |user| %>
+  <article class="media box">
+    <div class="media-left">
+      <img class="image is-64x64" src="<%= user.profile_picture_url %>" />
+    </div>
+    <div class="media-content">
+      <p class="title is-5"><a href="<%= user_path(user)%>">@<%= user.name %></a></p>
+      <p class="subtitle is-6"><%= user.bio %></p>
+      <p>
+        <span>Posts: <%= user.posts.count %>,</span>
+        <span>Comments: <%= user.comments.count %></span>
+      </p>
+    </div>
+  </article>
+<% end %>
