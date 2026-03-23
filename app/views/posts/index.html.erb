@@ -1,1 +1,15 @@
-<h1>Posts</h1>
+<div class="container p-4">
+  <h1 class="title is-1">Feed</h1>
+  <% current_user.feed.each do |post| %>
+    <article class="media box">
+      <div class="media-left">
+        <img class="image is-64x64" src="<%= post.user.profile_picture_url %>" />
+      </div>
+      <div class="media-content">
+        <p class="title is-5"><a href="<%= user_path(post.user)%>">@<%= post.user.name %></a></p>
+        <p class="title"><%= post.title %></p>
+        <p class="subtitle"><%= post.body %></p>
+      </div>
+    </article>
+  <% end %>
+</div>
