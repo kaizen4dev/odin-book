@@ -31,4 +31,8 @@ class User < ApplicationRecord
   def profile_picture_url
     "https://gravatar.com/avatar/#{Digest::SHA256.hexdigest(self.email)}"
   end
+
+  def has_follower?(user)
+    self.followers.ids.any? user.id
+  end
 end
