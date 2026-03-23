@@ -6,5 +6,5 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { in: 5..100 }
   validates :body, presence: true, length: { maximum: 10000 }
 
-  scope :feed_for, ->(user) { where(user_id: user.following.ids) }
+  scope :feed_for, ->(user) { where(user_id: user.following.ids.push(user.id)) }
 end
