@@ -1,0 +1,58 @@
+<div class="container p-4" data-controller="user">
+  <div class="p-4 is-flex-tablet">
+    <%= tag.img src: @user.profile_picture_url, class: "m-4", height: "200", width: "300", sizes: "auto" %>
+
+    <div>
+      <%= tag.h1 @user.name, class: "title is-2 md-0 p-0 is-hidden-touch" %>
+      <%= tag.h1 @user.name, class: "title is-4 md-0 p-0 is-hidden-desktop" %>
+
+      <% unless @user.bio.nil? %>
+        <%= tag.h2 "About me", class: "title is-5 md-1 p-0" %>
+        <%= tag.p @user.bio, class: "subtitle is-6" %>
+      <% end %>
+
+      <%= tag.h2 "Stats", class: "title is-5 md-0 mt-5 p-0" %>
+      <div class="subtitle is-6">
+        <%= tag.p "Posts: #{@user.posts.count}" %>
+        <%= tag.p "Comments: #{@user.comments.count}" %>
+        <%= tag.p "Followers: #{@user.followers.count}" %>
+        <%= tag.p "Following: #{@user.following.count}" %>
+      </div>
+
+      <%= render "follow_buttons", user: @user %>
+      <%= button_tag "Copy profile link",
+        class: "button is-small mt-1",
+        data: {
+            controller: "clipboard",
+            action: "clipboard#copyText",
+            clipboard_text_value: user_url(@user)
+        } %>
+
+    </div>
+  </div>
+
+  <div class="tabs is-centered">
+    <ul>
+      <li class="is-active" data-action="click->user#posts" data-user-target="postsTab"><a>Posts</a></li>
+      <li data-action="click->user#comments" data-user-target="commentsTab"><a>Comments</a></li>
+      <li data-action="click->user#following" data-user-target="followingTab"><a>Following</a></li>
+      <li data-action="click->user#followers" data-user-target="followersTab"><a>Followers</a></li>
+    </ul>
+  </div>
+
+  <div data-user-target="posts">
+    <%= render "posts/posts", posts: @user.posts %>
+  </div>
+
+  <div data-user-target="comments" hidden>
+  </div>
+
+  <div data-user-target="following" hidden>
+    <%= render "users", users: @user.following %>
+  </div>
+
+  <div data-user-target="followers" hidden>
+    <%= render "users", users: @user.followers %>
+  </div>
+
+</div>
