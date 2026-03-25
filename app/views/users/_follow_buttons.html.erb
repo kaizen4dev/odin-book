@@ -1,16 +1,16 @@
 <% unless user == current_user %>
-  <div data-controller="followings" data-followings-following-value="<%= user.has_follower?(current_user) %>">
+  <div data-controller="button-switch" data-button-switch-active-value="<%= user.has_follower?(current_user) %>">
     <%= button_to "Unfollow",
       user_followings_path(follower_id: current_user.id, following_id: user.id),
       method: :delete,
       class: "button is-small mt-1",
-      data: { followings_target: "unfollowBtn", action: "followings#unfollow" }
+      data: { button_switch_target: "deactivateBtn", action: "button-switch#deactivate" }
     %>
     <%= button_to "Follow",
       user_followings_path(follower_id: current_user.id, following_id: user.id),
       method: :create,
       class: "button is-small mt-1",
-      data: { followings_target: "followBtn", action: "followings#follow" }
+      data: { button_switch_target: "activateBtn", action: "button-switch#activate" }
     %>
   </div>
 <%end%>
