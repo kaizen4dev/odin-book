@@ -9,6 +9,6 @@ class Post < ApplicationRecord
   scope :feed_for, ->(user) { where(user_id: user.following.ids.push(user.id)).order(created_at: :desc) }
 
   def liked_by?(user)
-    self.likes.find_by(user: user).nil?
+    !self.likes.find_by(user: user).nil?
   end
 end
