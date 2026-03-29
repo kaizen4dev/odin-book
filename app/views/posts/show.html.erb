@@ -1,0 +1,32 @@
+<div class="container p-4 mx-auto mt-5">
+  <section class="section box">
+    <p class="is-flex mb-2">
+      <%= tag.img src: @post.user.profile_picture_url, class: "image is-32x32 mr-1" %>
+      <%= tag.a "@" + @post.user.name, href: user_path(@post.user), class: "is-size-4" %>
+    </p>
+    <%= tag.h1 @post.title, class: "title is-2 is-spaced" %>
+    <%= simple_format @post.body, class: "subtitle is-4" %>
+
+    <p>
+      Likes: <%= @post.likes.count %>,
+      Comments: <%= @post.comments.count %>
+    </p>
+
+    <div class="container is-flex">
+      <%= render "shared/like_button", size: "is-normal mr-1", model: @post %>
+      <%= render "shared/share_button", link: post_url(@post), size: "is-normal" %>
+    </div>
+  </section>
+
+  <section class="container p-4 mx-auto">
+    <%= tag.h2 "Comments", class: "title" %>
+    <%= form_with model: @new_comment, id: "comment" do |f| %>
+      <%= f.text_area :body, required: true, class: "textarea"%>
+      <%= f.submit class: "button mt-3 is-dark" %>
+    <% end %>
+  </section>
+
+  <section class="container p-4 mx-auto">
+    <%= render "comments", comments: @comments %>
+  </section>
+</div>

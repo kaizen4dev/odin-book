@@ -1,0 +1,15 @@
+<% comments.each do |comment| %>
+  <% user = comment.user %>
+
+  <div class="media box">
+    <div class="media-left has-text-centered">
+      <img class="image is-64x64 m-auto" src="<%= user.profile_picture_url %>" />
+      <p>Likes: <%= comment.likes.count %></p>
+      <%= render "shared/like_button", model: comment, size: "is-small" %>
+    </div>
+    <div class="media-content">
+      <p class="title is-4 mb-1"><a href="<%= user_path(user)%>">@<%= user.name %></a></p>
+      <p class="subtitle is-5"><%= comment.body %></p>
+    </div>
+  </div>
+<% end %>
