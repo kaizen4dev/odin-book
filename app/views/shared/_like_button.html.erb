@@ -1,0 +1,14 @@
+<div data-controller="button-switch" data-button-switch-active-value="<%= model.liked_by?(current_user) %>">
+  <%= button_to "Like",
+    likes_path(user_id: current_user.id, likeable_id: model.id, likeable_type: model.model_name),
+    method: :create,
+    class: "button mt-1 #{size}",
+    data: { button_switch_target: "activateBtn", action: "button-switch#activate" }
+  %>
+  <%= button_to "Like",
+    likes_path(user_id: current_user.id, likeable_id: model.id, likeable_type: model.model_name),
+    method: :delete,
+    class: "button mt-1 is-success is-outlined #{size}",
+    data: { button_switch_target: "deactivateBtn", action: "button-switch#deactivate" }
+  %>
+</div>

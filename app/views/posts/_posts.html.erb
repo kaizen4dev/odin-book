@@ -21,20 +21,7 @@
       </p>
 
       <div class="container mt-0 is-flex">
-        <div data-controller="button-switch" data-button-switch-active-value="<%= post.liked_by?(current_user) %>">
-          <%= button_to "Like",
-            likes_path(user_id: current_user.id, likeable_id: post.id, likeable_type: post.model_name),
-            method: :create,
-            class: "button is-small mt-1",
-            data: { button_switch_target: "activateBtn", action: "button-switch#activate" }
-          %>
-          <%= button_to "Like",
-            likes_path(user_id: current_user.id, likeable_id: post.id, likeable_type: post.model_name),
-            method: :delete,
-            class: "button is-small mt-1 is-success is-outlined",
-            data: { button_switch_target: "deactivateBtn", action: "button-switch#deactivate" }
-          %>
-        </div>
+        <%= render "shared/like_button", model: post, size: "is-small" %>
 
         <%= button_tag "Comment", class: "button is-small mt-1" %>
 
