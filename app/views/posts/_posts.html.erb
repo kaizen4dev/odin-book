@@ -23,7 +23,7 @@
       <div class="container mt-0 is-flex">
         <%= render "shared/like_button", model: post, size: "is-small" %>
 
-        <%= button_tag "Comment", class: "button is-small mt-1" %>
+        <%= link_to "Comment", post_url(post) + "#comment", class: "button is-small mt-1" %>
 
         <%= button_tag "Share link",
           class: "button is-small mt-1",
