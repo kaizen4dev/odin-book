@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments, as: :commantable
+  has_many :comments, as: :commentable
   has_many :likes, as: :likeable
 
   validates :title, presence: true, length: { in: 5..100 }

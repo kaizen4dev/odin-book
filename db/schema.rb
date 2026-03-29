@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_21_171352) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_29_133153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "commantable_id"
-    t.string "commantable_type"
+    t.integer "commentable_id"
+    t.string "commentable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
