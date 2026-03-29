@@ -1,0 +1,7 @@
+<%= button_tag "Share link",
+  class: "button mt-1 #{size}",
+  data: {
+      controller: "clipboard",
+      action: "clipboard#copyText",
+      clipboard_text_value: link
+  } %>
