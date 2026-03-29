@@ -21,6 +21,9 @@
   <section class="container p-4 mx-auto">
     <%= tag.h2 "Comments", class: "title" %>
     <%= form_with model: @new_comment, id: "comment" do |f| %>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :commentable_id %>
+      <%= f.hidden_field :commentable_type %>
       <%= f.text_area :body, required: true, class: "textarea"%>
       <%= f.submit class: "button mt-3 is-dark" %>
     <% end %>
