@@ -45,6 +45,7 @@
   </div>
 
   <div data-user-target="comments" hidden>
+    <%= render "comments", comments: @user.comments.order(updated_at: :desc) %>
   </div>
 
   <div data-user-target="following" hidden>
