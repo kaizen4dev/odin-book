@@ -5,8 +5,8 @@
 <div class="container p-5 box">
   <%= form_with model: @post do |f| %>
     <%= f.hidden_field :user_id %>
-    <%= f.text_field :title, class: "input has-background-black-ter is-size-4", placeholder: "Title" %>
-    <%= f.text_area :body, class: "textarea my-5 has-background-black-ter is-size-5", rows: "25", placeholder: "Content" %>
+    <%= f.text_field :title, class: "input has-background-black-ter is-size-4", placeholder: "Title", minlength: 5, maxlength: 100 %>
+    <%= f.text_area :body, class: "textarea my-5 has-background-black-ter is-size-5", rows: "25", placeholder: "Content", maxlength: 10000 %>
     <%= f.submit class: "button is-medium" %>
   <% end %>
 </div>
