@@ -24,7 +24,7 @@
       <%= f.hidden_field :user_id %>
       <%= f.hidden_field :commentable_id %>
       <%= f.hidden_field :commentable_type %>
-      <%= f.text_area :body, required: true, class: "textarea"%>
+      <%= f.text_area :body, required: true, class: "textarea", maxlength: 1000 %>
       <%= f.submit class: "button mt-3 is-dark" %>
     <% end %>
   </section>
