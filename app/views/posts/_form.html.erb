@@ -1,0 +1,12 @@
+<% @post.errors.full_messages.each do |msg| %>
+  <%= tag.p msg, class: "notification is-danger is-dark is-size-5" %>
+<% end %>
+
+<div class="container p-5 box">
+  <%= form_with model: @post do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.text_field :title, class: "input has-background-black-ter is-size-4", placeholder: "Title" %>
+    <%= f.text_area :body, class: "textarea my-5 has-background-black-ter is-size-5", rows: "25", placeholder: "Content" %>
+    <%= f.submit class: "button is-medium" %>
+  <% end %>
+</div>
