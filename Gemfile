@@ -70,3 +70,5 @@ gem "devise", "~> 5.0"
 gem "dartsass-rails", "~> 0.5.1"
 
 gem "bulma-rails", "~> 1.0"
+
+gem "letter_opener", "~> 1.10", group: :development
