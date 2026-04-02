@@ -27,8 +27,10 @@
     <%= render "layouts/navbar" %>
 
     <main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <section class="container is-max-tablet p-4">
+        <%= tag.p notice, class: "notification is-success" if notice %>
+        <%= tag.p alert, class: "notification is-danger" if alert %>
+      </section>
       <%= yield %>
     </main>
   </body>
