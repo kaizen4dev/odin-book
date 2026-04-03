@@ -87,7 +87,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: k4d_odin_book
+    database: k4d_odin_book_production
     username: k4d
     host: postgresql-k4d.alwaysdata.net
     password: <%= ENV["ODIN_BOOK_DATABASE_PASSWORD"] %>
