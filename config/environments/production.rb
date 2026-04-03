@@ -5,9 +5,6 @@ Rails.application.routes.default_url_options[:protocol] = 'https'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.relative_url_root = "/odin-book"
-  config.assets.prefix = "/odin-book/assets"
-  config.public_file_server.enabled = true
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
