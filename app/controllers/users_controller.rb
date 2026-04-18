@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by name: params[:username]
+    if params[:username]
+      @user = User.find_by name: params[:username]
+    else
+      @user = current_user
+    end
   end
 
   def index
